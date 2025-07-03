@@ -40,11 +40,11 @@
 .hTitle {
     margin-top: 50px;
     font-size: 100px;
-    color: pink;
+    color: #ffc0cb;
 }
 
 .hTitle span {
-    color: white;
+    color: #ffffff;
 }
 
 .awards {
