@@ -1,3 +1,4 @@
+import ComputerModelContainer from "./computer/ComputerModelContainer"
 import "./services.css"
 
 const Services = () => {
@@ -5,7 +6,7 @@ const Services = () => {
     <div className='services'>
       <div className="sSection left"></div>
       <div className="sSection right"></div>
-      
+      <ComputerModelContainer />
     </div>
   )
 }
