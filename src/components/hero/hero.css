@@ -276,7 +276,25 @@
     gap: 4vh;
   }
 
- 
+  .bg {
+    height: 50%;
+    top: auto;
+    bottom: 0;
+  }
+
+  .hImg {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+
+  .hImg img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-top: -100%;
+  }
 
   .hSection {
     width: 100%;
@@ -294,7 +312,7 @@
   }
 
   .hTitle {
-    font-size: 10.5vw;
+    font-size: 10vw;
     margin-top: 2vh;
     line-height: 1.2;
   }
@@ -311,7 +329,7 @@
 
   .awards p {
     font-size: 4vw;
-    margin: 1vh 0;
+    margin: 2vh 0;
   }
 
   .awardList {
@@ -328,19 +346,12 @@
 
 
 
- 
+  .follow,
+  .bubbleContainer,
+  .certificate, .contactLink {
+    display: none;
+  }
+
+
   
-  .contactLink {
-    margin-bottom: 3vh;
-  }
-
-  .circleText {
-    font-size: 4vw;
-    letter-spacing: 0.5vw;
-  }
-
-  .arrow {
-    width: 12vw;
-    height: 12vw;
-  }
 }
