@@ -269,89 +269,85 @@
 }
 
 @media (max-width: 480px) {
-  .hero {
-    flex-direction: column;
-    height: auto;
-    padding: 0vh 5vw;
-    gap: 4vh;
-  }
+    .hero {
+        flex-direction: column;
+        height: auto;
+        padding: 0vh 5vw;
+        gap: 4vh;
+    }
 
-  .bg {
-    height: 50%;
-    top: auto;
-    bottom: 0;
-  }
+    .bg {
+        height: 50%;
+        top: auto;
+        bottom: 0;
+    }
 
-  .hImg {
-    position: relative;
-    width: 100%;
-    height: auto;
-    margin: 0;
-  }
+    .hImg {
+        position: relative;
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
 
-  .hImg img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    margin-top: -100%;
-  }
+    .hImg img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        margin-top: -100%;
+    }
 
-  .hSection {
-    width: 100%;
-    padding: 0;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4vh;
-    text-align: center;
-  }
+    .hSection {
+        width: 100%;
+        padding: 0;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4vh;
+        text-align: center;
+    }
 
-  .hSection.left {
-    gap: 2vh;
-  }
+    .hSection.left {
+        gap: 2vh;
+    }
 
-  .hTitle {
-    font-size: 10vw;
-    margin-top: 2vh;
-    line-height: 1.2;
-  }
+    .hTitle {
+        font-size: 10vw;
+        margin-top: 2vh;
+        line-height: 1.2;
+    }
 
-  .awards {
-    width: 100%;
-    margin-top: 1vh;
-  }
+    .awards {
+        width: 100%;
+        margin-top: 1vh;
+    }
 
-  .awards h2 {
-    font-size: 6vw;
-    margin: 0;
-  }
+    .awards h2 {
+        font-size: 6vw;
+        margin: 0;
+    }
 
-  .awards p {
-    font-size: 4vw;
-    margin: 2vh 0;
-  }
+    .awards p {
+        font-size: 4vw;
+        margin: 2vh 0;
+    }
 
-  .awardList {
-    justify-content: center;
-    gap: 4vw;
-    flex-wrap: wrap;
-  }
+    .awardList {
+        justify-content: center;
+        gap: 4vw;
+        flex-wrap: wrap;
+    }
 
-  .awardList img {
-    width: 12vw;
-    height: 12vw;
-    padding: 2vw;
-  }
+    .awardList img {
+        width: 12vw;
+        height: 12vw;
+        padding: 2vw;
+    }
 
-
-
-  .follow,
-  .bubbleContainer,
-  .certificate, .contactLink {
-    display: none;
-  }
-
-
-  
+    .follow,
+    .bubbleContainer,
+    .certificate,
+    .contactLink {
+        display: none;
+    }
 }

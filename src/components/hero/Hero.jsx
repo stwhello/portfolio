@@ -59,9 +59,9 @@ const Hero = () => {
             Tools and technologies I use to craft seamless solutions.
           </motion.p>
           <motion.div variants={awardVariants} className="awardList">
-            <motion.img variants={awardVariants} src="/award1.png" alt="" />
-            <motion.img variants={awardVariants} src="/award2.png" alt="" />
-            <motion.img variants={awardVariants} src="/award3.png" alt="" />
+            <motion.img variants={awardVariants} src="/award1.webp" alt="" />
+            <motion.img variants={awardVariants} src="/award2.webp" alt="" />
+            <motion.img variants={awardVariants} src="/award3.webp" alt="" />
           </motion.div>
         </motion.div>
         <motion.a
@@ -114,7 +114,7 @@ const Hero = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/linkedIn.png" alt="LinkedIn" />
+            <img src="/linkedIn.webp" alt="LinkedIn" />
           </motion.a>
           <motion.a
             variants={followVariants}
@@ -122,7 +122,7 @@ const Hero = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/github.png" alt="GitHub" />
+            <img src="/github.webp" alt="GitHub" />
           </motion.a>
           <motion.a
             variants={followVariants}
@@ -130,7 +130,7 @@ const Hero = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/resume.png" alt="YouTube" />
+            <img src="/resume.webp" alt="YouTube" />
           </motion.a>
 
           <motion.div variants={followVariants} className="followTextContainer">
@@ -144,7 +144,7 @@ const Hero = () => {
           transition={{ duration: 1 }}
           className="certificate"
         >
-          <img src="/certificate.png" alt="" />
+          <img src="/certificate.webp" alt="" />
           VERSATILE DEVELOPER
           <br />
           AI - ENTHUSIAST
@@ -211,7 +211,7 @@ const Hero = () => {
          </Suspense>
         </Canvas>
         <div className="hImg">
-          <img src="/hero.png" alt="" />
+          <img src="/hero.webp" alt="" />
         </div>
       </div>
     </div>
