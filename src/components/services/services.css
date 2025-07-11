@@ -1,12 +1,109 @@
 .services {
-    height: 100%;
-    overflow: hidden;
-    display: flex;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  gap: 2vw;
 }
 
 .sSection {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2vh 4vw;
 }
+
+.aboutHeadline {
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 600;
+  color: #ffc0cb;
+  margin-bottom: 3vh;
+  line-height: 1.2;
+  position: relative;
+}
+
+/* Cards Section */
+.aboutCards {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  margin-bottom: 4vh;
+}
+
+.aboutCard {
+  display: flex;
+  gap: 1vw;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 1.25vw;
+  padding: 1.5vw;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.aboutCard:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+.cardIcon {
+  font-size: 2vw;
+}
+
+.cardContent h3 {
+  font-size: clamp(16px, 1.4vw, 20px);
+  color: #ffffff;
+  margin: 0 0 0.5vh;
+}
+
+.cardContent p {
+  font-size: clamp(13px, 1.1vw, 16px);
+  color: #ddd;
+  line-height: 1.6;
+}
+
+/* Skills */
+.skillsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7vw;
+  margin-bottom: 3vh;
+}
+
+.skill {
+  background-color: rgba(255, 192, 203, 0.1);
+  color: #ffc0cb;
+  border: 1px dashed #ffc0cb;
+  padding: 0.6vw 1.2vw;
+  border-radius: 2vw;
+  font-size: clamp(12px, 1vw, 16px);
+  transition: transform 0.3s ease;
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.skill:hover {
+  transform: scale(1.1) rotate(-2deg);
+  background-color: rgba(255, 192, 203, 0.2);
+  cursor: default;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tagline */
+.aboutTagline {
+  font-size: clamp(14px, 1.1vw, 18px);
+  color: #aaa;
+  font-style: italic;
+  text-align: center;
+  position: relative;
+  margin-top: 2vh;
+}
+
