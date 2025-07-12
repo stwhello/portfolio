@@ -2,20 +2,15 @@
   height: 100%;
   overflow: hidden;
   display: flex;
-  flex-direction: row;
-  gap: 2vw;
 }
 
 .sSection {
   width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   padding: 2vh 4vw;
 }
 
 .aboutHeadline {
-  font-size: clamp(28px, 4vw, 52px);
+  font-size: clamp(28px, 4vw, 44px);
   font-weight: 600;
   color: #ffc0cb;
   margin-bottom: 3vh;
@@ -23,12 +18,12 @@
   position: relative;
 }
 
-/* Cards Section */
+
 .aboutCards {
   display: flex;
   flex-direction: column;
   gap: 2vh;
-  margin-bottom: 4vh;
+  margin-bottom: 2vh;
 }
 
 .aboutCard {
@@ -65,7 +60,7 @@
   line-height: 1.6;
 }
 
-/* Skills */
+
 .skillsGrid {
   display: flex;
   flex-wrap: wrap;
@@ -97,7 +92,6 @@
   }
 }
 
-/* Tagline */
 .aboutTagline {
   font-size: clamp(14px, 1.1vw, 18px);
   color: #aaa;
@@ -107,3 +101,94 @@
   margin-top: 2vh;
 }
 
+@media (max-width: 480px) {
+  .services {
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  .sSection {
+    width: 100%;
+    padding: 4vh 5vw;
+  }
+
+  .sSection.right {
+    display: none;
+  }
+
+  .sSection.left {
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 3vh;
+  }
+
+  .aboutHeadline {
+    text-align: center;
+    font-size: clamp(24px, 6vw, 30px);
+    margin-bottom: 2vh;
+  }
+
+  .aboutCards {
+    gap: 2vh;
+    margin-bottom: 2vh;
+  }
+
+  .aboutCard {
+    padding: 4vw;
+    border-radius: 4vw;
+    flex-direction: row;
+  }
+
+  .cardIcon {
+    font-size: 6vw;
+  }
+
+  .cardContent h3 {
+    font-size: 4.2vw;
+  }
+
+  .cardContent p {
+    font-size: 3.8vw;
+  }
+
+  .skillsGrid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 6vw;
+    padding-bottom: 1vh;
+
+     scrollbar-width: none;           
+  -ms-overflow-style: none;  
+  }
+
+  .skillsGrid::-webkit-scrollbar {
+  display: none;               
+}
+
+  .skill {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    font-size: 4vw;
+    padding: 2vw 5vw;
+    border-radius: 5vw;
+    white-space: nowrap;
+    background-color: rgba(255, 192, 203, 0.15);
+    border: 1px dashed #ffc0cb;
+    color: #ffc0cb;
+    transition: transform 0.3s ease;
+  }
+
+  .skill:hover {
+    transform: scale(1.05) rotate(-2deg);
+  }
+
+  .aboutTagline {
+    display: none;
+  }
+}
