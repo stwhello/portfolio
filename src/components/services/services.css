@@ -22,8 +22,8 @@
 .aboutCards {
   display: flex;
   flex-direction: column;
-  gap: 2vh;
-  margin-bottom: 2vh;
+  gap: 4vh;
+  margin-bottom: 5vh;
 }
 
 .aboutCard {
