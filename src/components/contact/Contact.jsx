@@ -51,19 +51,30 @@ const Contact = () => {
 
   const isInView = useInView(ref, { margin: "-200px" });
 
+  // Detect mobile
+  const isMobile = window.innerWidth <= 480;
+
   return (
     <div className='contact' ref={ref} onSubmit={sendEmail}>
       <div className='cSection'>
         <motion.form
           ref={form}
           onSubmit={sendEmail}
-          variants={listVariant}
-          animate={isInView ? "animate" : "initial"}
+          {...(!isMobile && {
+            variants: listVariant,
+            animate: isInView ? "animate" : "initial",
+          })}
         >
-          <motion.h1 variants={listVariant} className='cTitle'>
+          <motion.h1
+            {...(!isMobile && { variants: listVariant })}
+            className='cTitle'
+          >
             Let's keep in touch
           </motion.h1>
-          <motion.div variants={listVariant} className='formItem'>
+          <motion.div
+            {...(!isMobile && { variants: listVariant })}
+            className='formItem'
+          >
             <label>Name</label>
             <input
               type='text'
@@ -72,7 +83,10 @@ const Contact = () => {
               required
             />
           </motion.div>
-          <motion.div variants={listVariant} className='formItem'>
+          <motion.div
+            {...(!isMobile && { variants: listVariant })}
+            className='formItem'
+          >
             <label>Email</label>
             <input
               type='email'
@@ -81,7 +95,10 @@ const Contact = () => {
               required
             />
           </motion.div>
-          <motion.div variants={listVariant} className='formItem'>
+          <motion.div
+            {...(!isMobile && { variants: listVariant })}
+            className='formItem'
+          >
             <label>Message</label>
             <textarea
               rows={10}
@@ -91,7 +108,7 @@ const Contact = () => {
             ></textarea>
           </motion.div>
           <motion.button
-            variants={listVariant}
+            {...(!isMobile && { variants: listVariant })}
             className='formButton'
             type='submit'
           >
