@@ -1,46 +1,124 @@
 .contact {
     height: 100%;
     display: flex;
-    gap: 100px;
+    gap: 6vw;
 }
 
 .cSection {
     width: 50%;
     height: 100%;
-    padding: 20px;
+    padding: 1.85vh 1.04vw;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.cSection:last-child {
+    background-color: rgba(2, 2, 45, 0.187);
+    margin: 4.63vh 0;
+    padding: 4.63vh 2.6vw;
+    border-radius: 50% 0px;
 }
 
 form {
     width: 80%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 1.85vh;
+    background-color: rgba(2, 2, 45, 0.066);
+    padding: 4.63vh 2.6vw;
+    border-radius: 2.6vw;
 }
 
-input, textarea {
-    padding: 12px;
+input,
+textarea {
+    padding: 1.6vh 0.8vw;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.26vw;
 }
 
 .formItem {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 1vh;
 }
 
 label {
-    font-size: 13px;
+    font-size: 2vh;
 }
 
 .formButton {
     background-color: #dd4c62;
     color: white;
-    padding: 20px;
+    padding: 2vh 1.04vw;
     border: none;
+    border-radius: 0.52vw;
     cursor: pointer;
-    border-radius: 10px;
+}
+
+@media (max-width: 1280px) {
+    .form {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .contact {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact {
+        flex-direction: column;
+    }
+
+    .cSection {
+        width: 100%;
+    }
+
+    .cSection:first-child {
+        height: 70%;
+    }
+
+    .cSection:last-child {
+        height: 30%;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact {
+        flex-direction: column;
+        gap: 4vh;
+    }
+
+    .cSection {
+        width: 100%;
+        padding: 2vh 4vw;
+    }
+
+    .cSection:last-child {
+        margin: 0;
+    }
+
+
+
+    form {
+        width: 100%;
+        padding: 3vh 4vw;
+        border-radius: 4vw;
+    }
+
+    .cTitle {
+        font-size: 6vw;
+    }
+
+    label {
+        font-size: 1.8vh;
+    }
+
+    .formButton {
+        padding: 1.8vh 3vw;
+        border-radius: 1vw;
+    }
 }
