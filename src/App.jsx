@@ -1,63 +1,46 @@
-import { lazy, Suspense } from "react";
-import { useInView } from "react-intersection-observer";
+// import Hero from "./components/hero/Hero";
+// import Services from "./components/services/Services";
+// import Portfolio from "./components/portfolio/Portfolio";
+// import Contact from "./components/contact/Contact";
 
-// Lazy imports
+import { lazy, Suspense } from "react";
+import LazyLoad from "react-lazyload";
+
 const Hero = lazy(() => import("./components/hero/Hero"));
 const Services = lazy(() => import("./components/services/Services"));
 const Portfolio = lazy(() => import("./components/portfolio/Portfolio"));
 const Contact = lazy(() => import("./components/contact/Contact"));
 
-// Reusable Lazy Section
-const LazySection = ({ children, height = "100vh" }) => {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    rootMargin: "0px 0px -100px 0px",
-  });
-
-  return (
-    <div ref={ref} style={{ minHeight: height }}>
-      {inView && children}
-    </div>
-  );
-};
-
 const App = () => {
-  const isMobile = window.innerWidth <= 480;
-
   return (
     <div className="container">
       <Suspense fallback={"loading..."}>
-        <LazySection height="100vh">
-          <section id="home">
+        <LazyLoad height={"100vh"} offset={-100}>
+          <section id="#home">
             <Hero />
           </section>
-        </LazySection>
+        </LazyLoad>
       </Suspense>
-
       <Suspense fallback={"loading..."}>
-        <LazySection height="100vh">
-          <section id="services">
+        <LazyLoad height={"100vh"} offset={-100}>
+          <section id="#services">
             <Services />
-          </section>
-        </LazySection>
+          </section>{" "}
+        </LazyLoad>
       </Suspense>
-
-      {!isMobile && (
-        <Suspense fallback={"loading..."}>
-          <LazySection height="600vh">
-            <section id="portfolio">
-              <Portfolio />
-            </section>
-          </LazySection>
-        </Suspense>
-      )}
-
       <Suspense fallback={"loading..."}>
-        <LazySection height="100vh">
-          <section id="contact">
+        <LazyLoad height={"600vh"} offset={-100}>
+          {/* <section id="#portfolio"> */}
+          <Portfolio />
+          {/* </section> */}{" "}
+        </LazyLoad>
+      </Suspense>
+      <Suspense fallback={"loading..."}>
+        <LazyLoad height={"100vh"} offset={-100}>
+          <section id="#contact">
             <Contact />
-          </section>
-        </LazySection>
+          </section>{" "}
+        </LazyLoad>
       </Suspense>
     </div>
   );
