@@ -22,10 +22,11 @@
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 5vw;
+  
+  gap: 4vw; /* reduced gap */
   scroll-snap-align: start;
-  padding: 0 5vw;        
+  padding: 0 3vw; /* reduced padding so text doesn’t overflow */
+  box-sizing: border-box; /* ensures padding is counted inside */
 }
 
 .pProgress {
@@ -38,9 +39,9 @@
   max-height: 100px;
   z-index: 10;
 }
-
 .pImg {
-  width: 40%;
+  flex: 1 1 45%; /* flexible instead of fixed 40% */
+  max-width: 45%;
   border-radius: 1vw;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0,0,0,0.3);
@@ -50,12 +51,13 @@
   height: 100%;
   object-fit: cover;
 }
-
 .pText {
-  width: 40%;
+  flex: 1 1 45%;
+  max-width: 36%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  word-wrap: break-word; /* ensures long text doesn’t overflow */
 }
 .pText h1 {
   font-size: clamp(1.8rem, 4vw, 3rem);

@@ -26,9 +26,10 @@ a {
 }
 
 .container {
-  max-width: 1720px;
-  padding-left: 5.2vw;
-  padding-right: 5.2vw;
+  width: 100%;
+  max-width: 1800px; 
+  padding-left: clamp(1rem, 5vw, 6rem); 
+  padding-right: clamp(1rem, 5vw, 6rem);
   margin-left: auto;
   margin-right: auto;
 }
@@ -41,29 +42,18 @@ section {
   padding-bottom: 5vh;
 }
 
+@media (max-width: 1280px) {
+  .container {
+    max-width: 95%; 
+  }
+}
 
-@media (min-width: 640px) {
-  .container {
-    max-width: 640px;
+@media (max-width: 768px) {
+  html {
+    font-size: 2.5vw; 
   }
-}
-@media (min-width: 768px) {
   .container {
-    max-width: 768px;
-  }
-}
-@media (min-width: 1024px) {
-  .container {
-    max-width: 1024px;
-  }
-}
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
-  }
-}
-@media (min-width: 1536px) {
-  .container {
-    max-width: 1536px;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
