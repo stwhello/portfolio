@@ -22,11 +22,9 @@
   height: 100%;
   display: flex;
   align-items: center;
-  
-  gap: 4vw; /* reduced gap */
+  gap: 4vw; 
   scroll-snap-align: start;
-  padding: 0 3vw; /* reduced padding so text doesn’t overflow */
-  box-sizing: border-box; /* ensures padding is counted inside */
+  padding: 0 3vw; 
 }
 
 .pProgress {
@@ -39,8 +37,9 @@
   max-height: 100px;
   z-index: 10;
 }
+
 .pImg {
-  flex: 1 1 45%; /* flexible instead of fixed 40% */
+  flex: 1 1 45%; 
   max-width: 45%;
   border-radius: 1vw;
   overflow: hidden;
