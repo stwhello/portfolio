@@ -20,11 +20,11 @@ const App = () => {
         </section>
       </Suspense>
 
-      {/* <Suspense fallback={<div>Loading...</div>}>
-        <section id='portfolio' style={{ minHeight: "600vh" }}>
+      <Suspense fallback={<div>Loading...</div>}>
+        <section id='portfolio' style={{ minHeight: "100vh" }}>
           <Portfolio />
         </section>
-      </Suspense> */}
+      </Suspense>
 
       <Suspense fallback={<div>Loading...</div>}>
         <section id='contact' style={{ minHeight: "100vh" }}>

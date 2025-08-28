@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import "./portfolio.css";
-import { motion, useInView, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useInView } from "motion/react";
 
 const items = [
   {
@@ -40,146 +40,56 @@ const items = [
   },
 ];
 
-const imgVariants = {
-  initial: {
-    x: -500,
-    y: 500,
-    opacity: 0,
-  },
-  animate: {
-    x: 0,
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-      ease: "easeInOut",
-    },
-  },
-};
-
-const textVariants = {
-  initial: {
-    x: 500,
-    y: 500,
-    opacity: 0,
-  },
-  animate: {
-    x: 0,
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-      ease: "easeInOut",
-      staggerChildren: 0.05,
-    },
-  },
-};
-
-const ListItem = ({ item, isMobile }) => {
-  const ref = useRef();
-  const isInView = useInView(ref, { margin: "-100px" });
-
+const ListItem = ({ item }) => {
   return (
-    <div className='pItem' ref={ref}>
-      <motion.div
-        variants={isMobile ? {} : imgVariants}
-        animate={isMobile ? {} : isInView ? "animate" : "initial"}
-        className='pImg'
-      >
-        <img src={item.img} alt='' />
-      </motion.div>
-      <motion.div
-        variants={isMobile ? {} : textVariants}
-        animate={isMobile ? {} : isInView ? "animate" : "initial"}
-        className='pText'
-      >
-        <motion.h1 variants={isMobile ? {} : textVariants}>
-          {item.title}
-        </motion.h1>
-        <motion.p variants={isMobile ? {} : textVariants}>{item.desc}</motion.p>
-        <motion.a
-          variants={isMobile ? {} : textVariants}
-          href={item.link}
-          target='_blank'
-          rel='noopener noreferrer'
-        >
+    <div className="pItem">
+      <div className="pImg">
+        <img src={item.img} alt={item.title} />
+      </div>
+      <div className="pText">
+        <h1>{item.title}</h1>
+        <p>{item.desc}</p>
+        <a href={item.link} target="_blank" rel="noopener noreferrer">
           <button>View Project</button>
-        </motion.a>
-      </motion.div>
+        </a>
+      </div>
     </div>
   );
 };
 
 const Portfolio = () => {
-  const [containerDistance, setContainerDistance] = useState(0);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
   const ref = useRef(null);
-
-  // Recalculate distance + handle resize for mobile detection
-  useEffect(() => {
-    const calculateDistance = () => {
-      if (ref.current) {
-        const rect = ref.current.getBoundingClientRect();
-        setContainerDistance(rect.left);
-      }
-      setIsMobile(window.innerWidth <= 480);
-    };
-
-    calculateDistance();
-    window.addEventListener("resize", calculateDistance);
-    return () => {
-      window.removeEventListener("resize", calculateDistance);
-    };
-  }, []);
-
-  const { scrollYProgress } = useScroll({ target: ref });
-
-  const xTranslate = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, -window.innerWidth * items.length]
-  );
+  const { scrollXProgress } = useScroll({ container: ref }); // track horizontal scroll progress
+  const isInView = useInView(ref, { margin: "-10% 0px -10% 0px" }); // detect section visibility
 
   return (
-    <div className='portfolio' ref={ref}>
-      <motion.div className='pList' style={{ x: isMobile ? 0 : xTranslate }}>
-        <div
-          className='empty'
-          style={{
-            width: window.innerWidth - containerDistance,
-          }}
-        />
+    <div className="portfolio" ref={ref}>
+      <div className="pList">
         {items.map((item) => (
-          <ListItem item={item} key={item.id} isMobile={isMobile} />
+          <ListItem item={item} key={item.id} />
         ))}
-      </motion.div>
+      </div>
 
-      <section />
-      <section />
-      <section />
-      <section />
-      <section />
-
-      {!isMobile && (
-        <div className='pProgress'>
-          <svg width='100%' height='100%' viewBox='0 0 160 160'>
+      {isInView && (
+        <div className="pProgress">
+          <svg width="100%" height="100%" viewBox="0 0 160 160">
             <circle
-              cx='80'
-              cy='80'
-              r='70'
-              fill='none'
-              stroke='#ddd'
+              cx="80"
+              cy="80"
+              r="70"
+              fill="none"
+              stroke="#ddd"
               strokeWidth={20}
             />
             <motion.circle
-              cx='80'
-              cy='80'
-              r='70'
-              fill='none'
-              stroke='#dd4c62'
+              cx="80"
+              cy="80"
+              r="70"
+              fill="none"
+              stroke="#dd4c62"
               strokeWidth={20}
-              style={{ pathLength: scrollYProgress }}
-              transform='rotate(-90 80 80)'
+              style={{ pathLength: scrollXProgress }}
+              transform="rotate(-90 80 80)"
             />
           </svg>
         </div>
