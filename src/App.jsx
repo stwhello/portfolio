@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 
 const Hero = lazy(() => import("./components/hero/Hero"));
 const Services = lazy(() => import("./components/services/Services"));
@@ -6,6 +6,11 @@ const Portfolio = lazy(() => import("./components/portfolio/Portfolio"));
 const Contact = lazy(() => import("./components/contact/Contact"));
 
 const App = () => {
+  useEffect(() => {
+    // Force scroll to top when page loads
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className='container'>
       <Suspense fallback={<div>Loading...</div>}>
