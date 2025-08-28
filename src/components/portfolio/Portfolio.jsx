@@ -59,8 +59,8 @@ const ListItem = ({ item }) => {
 
 const Portfolio = () => {
   const ref = useRef(null);
-  const { scrollXProgress } = useScroll({ container: ref }); // track horizontal scroll progress
-  const isInView = useInView(ref, { margin: "-10% 0px -10% 0px" }); // detect section visibility
+  const { scrollXProgress } = useScroll({ container: ref }); 
+  const isInView = useInView(ref, { margin: "-10% 0px -10% 0px" }); 
 
   return (
     <div className="portfolio" ref={ref}>
