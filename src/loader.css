@@ -8,7 +8,7 @@
   color: #fff;
   font-weight: 500;
   font-size: 1.1rem;
-  background: #0d0d0d;
+   background: linear-gradient(to bottom, #12071f, #2f204e);
 }
 
 .loader {
