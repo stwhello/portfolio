@@ -51,21 +51,26 @@
     width: 15vw;
 }
 
+.awards h2 {
+    font-size: clamp(12px, 3.2vw, 30px);
+    color: #ddd;
+    margin: 2.5vh 0;
+}
 .awards p {
-    font-size: clamp(12px, 1vw, 16px);
+    font-size: clamp(12px, 1vw, 20px);
     color: #ddd;
     margin: 2.5vh 0;
 }
 
 .awardList {
     display: flex;
-    gap: 0.42vw;
+    gap: 1vw;
     flex-wrap: wrap;
 }
 
 .awardList img {
-    width: 2.2vw;
-    height: 2.2vw;
+    width: 3vw;
+    height: 3vw;
     padding: 0.5vw;
     border: 1px solid #f3f3f3;
     background-color: #dddddd22;

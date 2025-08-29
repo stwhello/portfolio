@@ -4,9 +4,8 @@
   display: flex;
   overflow-x: auto;
   overflow-y: hidden;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none; 
-  -ms-overflow-style: none; 
+  scroll-snap-type: x mandatory; 
+  scroll-behavior: smooth; 
 }
 .portfolio::-webkit-scrollbar {
   display: none;
@@ -23,7 +22,8 @@
   display: flex;
   align-items: center;
   gap: 4vw; 
-  scroll-snap-align: start;
+  scroll-snap-align: start; 
+  scroll-snap-stop: always;
   padding: 0 3vw; 
 }
 
@@ -37,6 +37,9 @@
   max-height: 100px;
   z-index: 10;
 }
+
+
+
 
 .pImg {
   flex: 1 1 45%; 
@@ -101,6 +104,39 @@
 .pText button:hover::before {
   left: 100%;
 }
+
+.swipeHint {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #f0f0f0;
+  background: rgba(20, 20, 20, 0.75);
+  backdrop-filter: blur(12px);
+  padding: 0.6rem 1.4rem;
+  border-radius: 2rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  pointer-events: none;
+  letter-spacing: 0.5px;
+  animation: float 3s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-6px);
+  }
+}
+
 
 
 

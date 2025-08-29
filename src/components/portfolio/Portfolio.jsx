@@ -4,6 +4,13 @@ import { motion, useScroll, useInView } from "motion/react";
 
 const items = [
   {
+    id: 3,
+    img: "/p3.jpg",
+    title: "Paperfold Sequential Company Website",
+    desc: "Designed and developed the front-end of the official company website using modern UI principles and animations with the MERN stack. Ensured responsiveness across all devices and implemented EmailJS to handle enquiry forms, enhancing lead capture and overall user interaction.",
+    link: "https://paperfold.in/",
+  },
+  {
     id: 1,
     img: "/p1.jpg",
     title: "MAAC Website Redesign",
@@ -16,13 +23,6 @@ const items = [
     title: "Arena Animation Website Redesign",
     desc: "Led the front-end development of a fully responsive website redesign using the MERN stack. Delivered dynamic UI components and smooth animations, ensuring performance across multiple devices through precise breakpoint handling. Integrated the new design seamlessly with the existing CMS for consistent content delivery.",
     link: "https://www.arena-multimedia.com/",
-  },
-  {
-    id: 3,
-    img: "/p3.jpg",
-    title: "Paperfold Sequential Company Website",
-    desc: "Designed and developed the front-end of the official company website using modern UI principles and animations with the MERN stack. Ensured responsiveness across all devices and implemented EmailJS to handle enquiry forms, enhancing lead capture and overall user interaction.",
-    link: "https://paperfold.in/",
   },
   {
     id: 4,
@@ -42,14 +42,14 @@ const items = [
 
 const ListItem = ({ item }) => {
   return (
-    <div className="pItem">
-      <div className="pImg">
+    <div className='pItem'>
+      <div className='pImg'>
         <img src={item.img} alt={item.title} />
       </div>
-      <div className="pText">
+      <div className='pText'>
         <h1>{item.title}</h1>
         <p>{item.desc}</p>
-        <a href={item.link} target="_blank" rel="noopener noreferrer">
+        <a href={item.link} target='_blank' rel='noopener noreferrer'>
           <button>View Project</button>
         </a>
       </div>
@@ -59,40 +59,56 @@ const ListItem = ({ item }) => {
 
 const Portfolio = () => {
   const ref = useRef(null);
-  const { scrollXProgress } = useScroll({ container: ref }); 
-  const isInView = useInView(ref, { margin: "-10% 0px -10% 0px" }); 
+  const { scrollXProgress } = useScroll({ container: ref });
+  const isInView = useInView(ref, { margin: "-10% 0px -10% 0px" });
 
   return (
-    <div className="portfolio" ref={ref}>
-      <div className="pList">
+    <div className='portfolio' ref={ref}>
+      <div className='pList'>
         {items.map((item) => (
           <ListItem item={item} key={item.id} />
         ))}
       </div>
 
+      {/* Circular progress bar - visible only in view */}
       {isInView && (
-        <div className="pProgress">
-          <svg width="100%" height="100%" viewBox="0 0 160 160">
+        <div className='pProgress'>
+          <svg width='100%' height='100%' viewBox='0 0 160 160'>
             <circle
-              cx="80"
-              cy="80"
-              r="70"
-              fill="none"
-              stroke="#ddd"
+              cx='80'
+              cy='80'
+              r='70'
+              fill='none'
+              stroke='#ddd'
               strokeWidth={20}
             />
             <motion.circle
-              cx="80"
-              cy="80"
-              r="70"
-              fill="none"
-              stroke="#dd4c62"
+              cx='80'
+              cy='80'
+              r='70'
+              fill='none'
+              stroke='#dd4c62'
               strokeWidth={20}
               style={{ pathLength: scrollXProgress }}
-              transform="rotate(-90 80 80)"
+              transform='rotate(-90 80 80)'
             />
           </svg>
         </div>
+      )}
+
+      {isInView && (
+        <motion.div
+          className='swipeHint'
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            repeat: Infinity,
+            repeatType: "reverse",
+            duration: 1.5,
+          }}
+        >
+          👉 Swipe Right
+        </motion.div>
       )}
     </div>
   );
