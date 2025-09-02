@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useGLTF } from "@react-three/drei";
 
 export function ComputerModel(props) {
@@ -23,4 +23,4 @@ export function ComputerModel(props) {
   );
 }
 
-useGLTF.preload("/computerModel.glb");
+useGLTF.preload("/computer.glb");
