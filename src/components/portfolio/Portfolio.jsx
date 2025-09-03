@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import "./portfolio.css";
 import { motion, useScroll, useInView } from "motion/react";
 
