@@ -126,6 +126,7 @@
   }
 
   .aboutHeadline {
+    color: #ffc0cb;
     text-align: center;
     font-size: clamp(24px, 6vw, 30px);
     margin-bottom: 2vh;
