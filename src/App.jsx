@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect } from "react";
 import "./loader.css";
+import "./index.css";
 
 const Hero = lazy(() => import("./components/hero/Hero"));
 const Services = lazy(() => import("./components/services/Services"));
@@ -19,31 +20,25 @@ const App = () => {
   }, []);
 
   return (
-    <div className="container">
-      <Suspense fallback={<Loader />}>
-        <section id="home" style={{ minHeight: "100vh" }}>
+    <Suspense fallback={<Loader />}>
+      <div className="container">
+        <section id="home">
           <Hero />
         </section>
-      </Suspense>
 
-      <Suspense fallback={<Loader />}>
-        <section id="services" style={{ minHeight: "100vh" }}>
+        <section id="services">
           <Services />
         </section>
-      </Suspense>
 
-      <Suspense fallback={<Loader />}>
-        <section id="nport" style={{ minHeight: "100vh" }}>
+        <section id="nport">
           <Nport />
         </section>
-      </Suspense>
 
-      <Suspense fallback={<Loader />}>
-        <section id="contact" style={{ minHeight: "100vh" }}>
+        <section id="contact">
           <Contact />
         </section>
-      </Suspense>
-    </div>
+      </div>
+    </Suspense>
   );
 };
 
