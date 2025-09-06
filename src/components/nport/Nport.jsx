@@ -123,7 +123,7 @@ const Nport = () => {
         {items.map((work) => (
           <div className='work' key={work.id}>
             <div className='left'>
-              <img src={work.img} alt={work.title} />
+              <img src={work.img} alt={work.title} className="nportImg" />
             </div>
             <div className='right'>
               <div className='title'>{work.title}</div>
