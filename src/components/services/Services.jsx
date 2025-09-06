@@ -19,32 +19,24 @@ const cardData = [
 
 const containerVariants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
-    },
-  },
+  visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.2 } },
 };
 
 const itemVariants = {
   hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
 const Services = () => {
+  const isMobile = window.innerWidth <= 480;
+
   return (
-    <div className='services'>
-      <div className='sSection left'>
+    <section className="services">
+      <div className="sSection left">
         <motion.h2
-          className='aboutHeadline'
-          initial='hidden'
-          whileInView='visible'
+          className="aboutHeadline"
+          initial="hidden"
+          whileInView={!isMobile ? "visible" : undefined}
           variants={{
             hidden: { opacity: 0, y: -30 },
             visible: { opacity: 1, y: 0 },
@@ -58,16 +50,16 @@ const Services = () => {
         </motion.h2>
 
         <motion.div
-          className='aboutCards'
-          variants={containerVariants}
-          initial='hidden'
-          whileInView='visible'
+          className="aboutCards"
+          variants={!isMobile ? containerVariants : undefined}
+          initial="hidden"
+          whileInView={!isMobile ? "visible" : undefined}
           viewport={{ once: true, amount: 0.2 }}
         >
           {cardData.map((card, i) => (
-            <motion.div className='aboutCard' key={i} variants={itemVariants}>
-              <div className='cardIcon'>{card.icon}</div>
-              <div className='cardContent'>
+            <motion.div className="aboutCard" key={i} variants={!isMobile ? itemVariants : undefined} aria-label={card.title}>
+              <div className="cardIcon">{card.icon}</div>
+              <div className="cardContent">
                 <h3>{card.title}</h3>
                 <p>{card.description}</p>
               </div>
@@ -76,10 +68,10 @@ const Services = () => {
         </motion.div>
 
         <motion.div
-          className='skillsGrid'
-          variants={containerVariants}
-          initial='hidden'
-          whileInView='visible'
+          className="skillsGrid"
+          variants={!isMobile ? containerVariants : undefined}
+          initial="hidden"
+          whileInView={!isMobile ? "visible" : undefined}
           viewport={{ once: true, amount: 0.2 }}
         >
           {[
@@ -93,16 +85,16 @@ const Services = () => {
             "Shopify",
             "Wordpress",
           ].map((skill, i) => (
-            <motion.div className='skill' key={i} variants={itemVariants}>
+            <motion.div className="skill" key={i} variants={!isMobile ? itemVariants : undefined} aria-label={skill}>
               {skill}
             </motion.div>
           ))}
         </motion.div>
       </div>
 
-      <div className='sSection right'>
+      <div className="sSection right">
         <motion.p
-          className='aboutTagline'
+          className="aboutTagline"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.3 }}
@@ -110,9 +102,10 @@ const Services = () => {
         >
           Driven by curiosity. Defined by solutions.
         </motion.p>
+
         <ComputerModelContainer />
       </div>
-    </div>
+    </section>
   );
 };
 

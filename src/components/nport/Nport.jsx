@@ -1,10 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import {
-  motion,
-  AnimatePresence,
-  useMotionValue,
-  useTransform,
-} from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion";
 import "./nport.css";
 
 const items = [
@@ -50,12 +45,12 @@ const Nport = () => {
   const sectionRef = useRef(null);
   const [inView, setInView] = useState(false);
   const [showHint, setShowHint] = useState(true);
+
   const progress = useMotionValue(0);
   const circumference = 2 * Math.PI * 70;
-  const dashOffset = useTransform(
-    progress,
-    (p) => circumference - circumference * p
-  );
+  const dashOffset = useTransform(progress, (p) => circumference - circumference * p);
+
+  const isMobile = window.innerWidth <= 480;
 
   useEffect(() => {
     const container = ref.current;
@@ -63,8 +58,7 @@ const Nport = () => {
 
     const onScroll = () => {
       const { scrollLeft, scrollWidth, clientWidth } = container;
-      const ratio = scrollLeft / (scrollWidth - clientWidth);
-      progress.set(ratio);
+      progress.set(scrollLeft / (scrollWidth - clientWidth));
       if (scrollLeft > 20) setShowHint(false);
     };
 
@@ -80,55 +74,49 @@ const Nport = () => {
       },
       { threshold: 0.2 }
     );
+
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => sectionRef.current && observer.unobserve(sectionRef.current);
   }, []);
 
   return (
-    <section className='Nport' ref={sectionRef}>
+    <section className="Nport" ref={sectionRef}>
       <AnimatePresence>
         {inView && (
           <motion.div
-            className='pProgress'
+            className="pProgress"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
           >
-            <svg width='100%' height='100%' viewBox='0 0 160 160'>
-              <circle
-                cx='80'
-                cy='80'
-                r='70'
-                fill='none'
-                stroke='#ddd'
-                strokeWidth={20}
-              />
+            <svg width="100%" height="100%" viewBox="0 0 160 160">
+              <circle cx="80" cy="80" r="70" fill="none" stroke="#ddd" strokeWidth={20} />
               <motion.circle
-                cx='80'
-                cy='80'
-                r='70'
-                fill='none'
-                stroke='#dd4c62'
+                cx="80"
+                cy="80"
+                r="70"
+                fill="none"
+                stroke="#dd4c62"
                 strokeWidth={20}
                 strokeDasharray={circumference}
                 style={{ strokeDashoffset: dashOffset }}
-                transform='rotate(-90 80 80)'
+                transform="rotate(-90 80 80)"
               />
             </svg>
           </motion.div>
         )}
       </AnimatePresence>
 
-      <div className='works' ref={ref}>
-        {items.map((work) => (
-          <div className='work' key={work.id}>
-            <div className='left'>
-              <img src={work.img} alt={work.title} className="nportImg" />
+      <div className="works" ref={ref}>
+        {items.map(({ id, img, title, desc, link }) => (
+          <div className="work" key={id}>
+            <div className="left">
+              <img src={img} alt={title} className="nportImg" />
             </div>
-            <div className='right'>
-              <div className='title'>{work.title}</div>
-              <div className='desc'>{work.desc}</div>
-              <a href={work.link} target='_blank' rel='noopener noreferrer'>
+            <div className="right">
+              <div className="title">{title}</div>
+              <div className="desc">{desc}</div>
+              <a href={link} target="_blank" rel="noopener noreferrer">
                 <button>View Project</button>
               </a>
             </div>
@@ -136,23 +124,17 @@ const Nport = () => {
         ))}
       </div>
 
-      <AnimatePresence>
-        {inView && showHint && (
-          <motion.div
-            className='swipeHint'
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            transition={{
-              repeat: Infinity,
-              repeatType: "reverse",
-              duration: 1.5,
-            }}
-          >
-            👉 Swipe Right
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {!isMobile && inView && showHint && (
+        <motion.div
+          className="swipeHint"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 20 }}
+          transition={{ repeat: Infinity, repeatType: "reverse", duration: 1.5 }}
+        >
+          👉 Swipe Right
+        </motion.div>
+      )}
     </section>
   );
 };

@@ -1,9 +1,10 @@
+import { memo } from "react";
 import { MeshDistortMaterial, Sphere } from "@react-three/drei";
 
 const Shape = () => {
   return (
     <>
-      <Sphere args={[1, 100, 200]} scale={2.4}>
+      <Sphere args={[1, 64, 128]} scale={2.4}>
         <MeshDistortMaterial
           color="#DB8B9B"
           attach="material"
@@ -11,10 +12,10 @@ const Shape = () => {
           speed={2}
         />
       </Sphere>
-      <ambientLight intensity={2} />
+      <ambientLight intensity={1.5} />
       <directionalLight position={[1, 2, 3]} />
     </>
   );
 };
 
-export default Shape;
+export default memo(Shape);
