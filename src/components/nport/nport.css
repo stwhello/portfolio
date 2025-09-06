@@ -39,7 +39,7 @@
     box-shadow: 0 1.5vh 3vh rgba(0, 0, 0, 0.5);
 }
 
-.right {
+.nright {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -202,7 +202,7 @@ button:hover::before {
         box-shadow: 0 1vh 2vh rgba(0, 0, 0, 0.4);
     }
 
-    .right {
+    .nright {
         max-width: 100%;
         padding: 2vh 0;
         align-items: center;

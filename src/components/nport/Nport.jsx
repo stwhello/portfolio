@@ -113,7 +113,7 @@ const Nport = () => {
             <div className="left">
               <img src={img} alt={title} className="nportImg" />
             </div>
-            <div className="right">
+            <div className="nright">
               <div className="title">{title}</div>
               <div className="desc">{desc}</div>
               <a href={link} target="_blank" rel="noopener noreferrer">
