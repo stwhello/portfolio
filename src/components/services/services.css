@@ -10,7 +10,7 @@
 }
 
 .aboutHeadline {
-  font-size: clamp(28px, 4vw, 44px);
+  font-size: clamp(28px, 4vw, 40px);
   font-weight: 600;
   color: #ffc0cb;
   margin-bottom: 3vh;
@@ -49,13 +49,13 @@
 }
 
 .cardContent h3 {
-  font-size: clamp(16px, 1.4vw, 20px);
+  font-size: clamp(16px, 1.4vw, 18px);
   color: #ffffff;
   margin: 0 0 0.5vh;
 }
 
 .cardContent p {
-  font-size: clamp(13px, 1.1vw, 16px);
+  font-size: clamp(13px, 1.1vw, 14px);
   color: #ddd;
   line-height: 1.6;
 }
