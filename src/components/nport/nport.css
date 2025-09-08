@@ -34,10 +34,6 @@
     transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
-.nportImg:hover {
-    transform: scale(1.05) rotateZ(1deg);
-    box-shadow: 0 1.5vh 3vh rgba(0, 0, 0, 0.5);
-}
 
 .nright {
     display: flex;
