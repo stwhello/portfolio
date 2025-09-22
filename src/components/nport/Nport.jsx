@@ -1,5 +1,10 @@
 import { useRef, useState, useEffect } from "react";
-import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useMotionValue,
+  useTransform,
+} from "framer-motion";
 import "./nport.css";
 
 const items = [
@@ -16,6 +21,13 @@ const items = [
     title: "MAAC Website Redesign",
     desc: "Led the front-end development for a complete website redesign using the MERN stack. Crafted an engaging, animation-rich interface with advanced UI elements, and integrated it smoothly with the existing CMS to maintain content flow and enhance user experience.",
     link: "https://www.maacindia.com/",
+  },
+  {
+    id: 6,
+    img: "/p2.jpg",
+    title: "Design Anubhuti (Surnag & Anubhuti)",
+    desc: "Delivered a full-stack solution for two domains: Surnag (real estate) and Anubhuti (interior design). Built with the MERN stack, the project includes custom admin dashboards for both domains, enabling dynamic content management and seamless data flow from backend to frontend. Hosted with Hostinger (frontend) and Render (backend) for scalability and reliability.",
+    link: "https://designanubhuti.com/",
   },
   {
     id: 2,
@@ -48,7 +60,10 @@ const Nport = () => {
 
   const progress = useMotionValue(0);
   const circumference = 2 * Math.PI * 70;
-  const dashOffset = useTransform(progress, (p) => circumference - circumference * p);
+  const dashOffset = useTransform(
+    progress,
+    (p) => circumference - circumference * p
+  );
 
   const isMobile = window.innerWidth <= 480;
 
@@ -80,43 +95,50 @@ const Nport = () => {
   }, []);
 
   return (
-    <section className="Nport" ref={sectionRef}>
+    <section className='Nport' ref={sectionRef}>
       <AnimatePresence>
         {inView && (
           <motion.div
-            className="pProgress"
+            className='pProgress'
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
           >
-            <svg width="100%" height="100%" viewBox="0 0 160 160">
-              <circle cx="80" cy="80" r="70" fill="none" stroke="#ddd" strokeWidth={20} />
+            <svg width='100%' height='100%' viewBox='0 0 160 160'>
+              <circle
+                cx='80'
+                cy='80'
+                r='70'
+                fill='none'
+                stroke='#ddd'
+                strokeWidth={20}
+              />
               <motion.circle
-                cx="80"
-                cy="80"
-                r="70"
-                fill="none"
-                stroke="#dd4c62"
+                cx='80'
+                cy='80'
+                r='70'
+                fill='none'
+                stroke='#dd4c62'
                 strokeWidth={20}
                 strokeDasharray={circumference}
                 style={{ strokeDashoffset: dashOffset }}
-                transform="rotate(-90 80 80)"
+                transform='rotate(-90 80 80)'
               />
             </svg>
           </motion.div>
         )}
       </AnimatePresence>
 
-      <div className="works" ref={ref}>
+      <div className='works' ref={ref}>
         {items.map(({ id, img, title, desc, link }) => (
-          <div className="work" key={id}>
-            <div className="nleft">
-              <img src={img} alt={title} className="nportImg" />
+          <div className='work' key={id}>
+            <div className='nleft'>
+              <img src={img} alt={title} className='nportImg' />
             </div>
-            <div className="nright">
-              <div className="title">{title}</div>
-              <div className="desc">{desc}</div>
-              <a href={link} target="_blank" rel="noopener noreferrer">
+            <div className='nright'>
+              <div className='title'>{title}</div>
+              <div className='desc'>{desc}</div>
+              <a href={link} target='_blank' rel='noopener noreferrer'>
                 <button>View Project</button>
               </a>
             </div>
@@ -126,11 +148,15 @@ const Nport = () => {
 
       {!isMobile && inView && showHint && (
         <motion.div
-          className="swipeHint"
+          className='swipeHint'
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
-          transition={{ repeat: Infinity, repeatType: "reverse", duration: 1.5 }}
+          transition={{
+            repeat: Infinity,
+            repeatType: "reverse",
+            duration: 1.5,
+          }}
         >
           👉 Swipe Right
         </motion.div>
