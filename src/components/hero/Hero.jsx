@@ -75,7 +75,7 @@ const Hero = () => {
           </motion.a>
           <motion.a
             variants={followVariants}
-            href="https://drive.google.com/file/d/1s_nFaxkvf-qlFA5ELfW3pU3JOxMp5STj/view?usp=sharing"
+            href="https://drive.google.com/file/d/18fiHWvAQe_4SnsK1atHoN5VvjUgjAY0z/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
           >
