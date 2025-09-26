@@ -24,7 +24,7 @@ const items = [
   },
   {
     id: 6,
-    img: "/p2.jpg",
+    img: "/p6.jpg",
     title: "Design Anubhuti (Surnag & Anubhuti)",
     desc: "Delivered a full-stack solution for two domains: Surnag (real estate) and Anubhuti (interior design). Built with the MERN stack, the project includes custom admin dashboards for both domains, enabling dynamic content management and seamless data flow from backend to frontend. Hosted with Hostinger (frontend) and Render (backend) for scalability and reliability.",
     link: "https://designanubhuti.com/",
