@@ -191,12 +191,15 @@ button:hover::before {
         justify-content: flex-start;
     }
 
-    .nportImg {
-        width: 80vw;
-        height: 33vh;
-        border-radius: 2vw;
-        box-shadow: 0 1vh 2vh rgba(0, 0, 0, 0.4);
-    }
+.nportImg {
+  width: 100%;
+  max-width: 80vw;
+  height: auto; 
+  aspect-ratio: 16 / 9;
+  border-radius: 2vw;
+  box-shadow: 0 1vh 2vh rgba(0, 0, 0, 0.4);
+  object-fit: contain;
+}
 
     .nright {
         max-width: 100%;
